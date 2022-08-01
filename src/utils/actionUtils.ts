@@ -1,4 +1,4 @@
-import * as cache from "@actions/cache";
+import * as cache from "@vanducvo/cache";
 import * as core from "@actions/core";
 
 import { Outputs, RefKey, State } from "../constants";

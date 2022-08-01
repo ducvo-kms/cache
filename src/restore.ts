@@ -1,8 +1,9 @@
-import * as cache from "@actions/cache";
+import * as cache from "@vanducvo/cache";
 import * as core from "@actions/core";
 
 import { Events, Inputs, State } from "./constants";
 import * as utils from "./utils/actionUtils";
+import { DownloadOptions } from "@vanducvo/cache/lib/options";
 
 async function run(): Promise<void> {
     try {
@@ -29,10 +30,26 @@ async function run(): Promise<void> {
             required: true
         });
 
+        const s3EndPoint = core.getInput(Inputs.S3Endpoint);
+        const s3AccessKey = core.getInput(Inputs.S3AccessKey);
+        const s3SecretKey = core.getInput(Inputs.S3SecretKey);
+        const s3Region = core.getInput(Inputs.S3Region);
+        const s3Bucket = core.getInput(Inputs.S3Bucket);
+
+        const options: DownloadOptions = {
+            useS3Sdk: s3EndPoint ? true : false,
+            s3EndPoint: s3EndPoint,
+            s3AccessKey: s3AccessKey,
+            s3SecretKey: s3SecretKey,
+            s3Region: s3Region,
+            s3Bucket: s3Bucket
+        };
+
         const cacheKey = await cache.restoreCache(
             cachePaths,
             primaryKey,
-            restoreKeys
+            restoreKeys,
+            options
         );
 
         if (!cacheKey) {

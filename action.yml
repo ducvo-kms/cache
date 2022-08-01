@@ -14,6 +14,21 @@ inputs:
   upload-chunk-size:
     description: 'The chunk size used to split up large files during upload, in bytes'
     required: false
+  s3-endpoint:
+    description: 'S3 AWS Endpoint'
+    required: false
+  s3-access-key:
+    description: 'S3 AWS Access Key'
+    required: false
+  s3-secret-key:
+    description: 'S3 AWS Secret Key'
+    required: false
+  s3-bucket:
+    description: 'S3 AWS Bucket'
+    required: false
+  s3-region:
+    description: 'S3 AWS Region'
+    required: false
 outputs:
   cache-hit:
     description: 'A boolean value to indicate an exact match was found for the primary key'
