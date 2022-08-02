@@ -26,7 +26,7 @@
     "@actions/core": "^1.7.0",
     "@actions/exec": "^1.1.1",
     "@actions/io": "^1.1.2",
-    "@vanducvo/cache": "^3.0.22"
+    "@vanducvo/cache": "^3.0.23"
   },
   "devDependencies": {
     "@types/jest": "^27.5.0",
