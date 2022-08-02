@@ -42,7 +42,8 @@ async function run(): Promise<void> {
             s3AccessKey: s3AccessKey,
             s3SecretKey: s3SecretKey,
             s3Region: s3Region,
-            s3Bucket: s3Bucket
+            s3Bucket: s3Bucket,
+            timeoutInMs: 600000
         };
 
         const cacheKey = await cache.restoreCache(
